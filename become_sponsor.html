@@ -26,7 +26,9 @@
     <link rel='stylesheet' id='elementor-frontend-css'  href='External_Styles/elementor_frontend.css' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-global-css'  href='External_Styles/elementor_global.css' type='text/css' media='all' />
     <link rel='stylesheet' id='elementor-post-459-css'  href='External_Styles/post_459.css' type='text/css' media='all' />
-    <link rel='stylesheet' id='generate-navigation-branding-css'  href='External_Styles/navigation_branding.css' type='text/css' media='all' />
+	<link rel='stylesheet' id='generate-navigation-branding-css'  href='External_Styles/navigation_branding.css' type='text/css' media='all' />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Hind&family=Roboto:ital,wght@1,700&display=swap" rel="stylesheet">
     <style id='generate-navigation-branding-inline-css' type='text/css'>
     @media (max-width: 770px){.site-header, #site-navigation, #sticky-navigation{display:none !important;opacity:0.0;}#mobile-header{display:block !important;width:100% !important;}#mobile-header .main-nav > ul{display:none;}#mobile-header.toggled .main-nav > ul, #mobile-header .menu-toggle, #mobile-header .mobile-bar-items{display:block;}#mobile-header .main-nav{-ms-flex:0 0 100%;flex:0 0 100%;-webkit-box-ordinal-group:5;-ms-flex-order:4;order:4;}}.navigation-branding img, .site-logo.mobile-header-logo img{height:45px;width:auto;}.navigation-branding .main-title{line-height:45px;}@media (max-width: 1310px){#site-navigation .navigation-branding, #sticky-navigation .navigation-branding{margin-left:10px;}}@media (max-width: 770px){.main-navigation:not(.slideout-navigation) .main-nav{-ms-flex:0 0 100%;flex:0 0 100%;}.main-navigation:not(.slideout-navigation) .inside-navigation{-ms-flex-wrap:wrap;flex-wrap:wrap;display:-webkit-box;display:-ms-flexbox;display:flex;}.nav-aligned-center .navigation-branding, .nav-aligned-left .navigation-branding{margin-right:auto;}.nav-aligned-center  .main-navigation.has-branding:not(.slideout-navigation) .inside-navigation .main-nav,.nav-aligned-center  .main-navigation.has-sticky-branding.navigation-stick .inside-navigation .main-nav,.nav-aligned-left  .main-navigation.has-branding:not(.slideout-navigation) .inside-navigation .main-nav,.nav-aligned-left  .main-navigation.has-sticky-branding.navigation-stick .inside-navigation .main-nav{margin-right:0px;}}
     </style>
@@ -35,37 +37,191 @@
     <link rel='stylesheet' id='jetpack_css-css'  href='External_Styles/jetpack_css.css' type='text/css' media='all' />
     <script type='text/javascript' src='External_Scripts/jquery_core.js' id='jquery-core-js'></script><!--This is the actual jquery library plugin-->
     <script type='text/javascript' src='External_Scripts/jquery_migrate.js' id='jquery-migrate-js'></script>
-    <script type='text/javascript' src='External_Scripts/jquery_mobile.js' id='jquery-mobile-js'></script>
+	<script type='text/javascript' src='External_Scripts/jquery_mobile.js' id='jquery-mobile-js'></script>
+	<style>
+        header {
+            margin-right:auto; margin-left:auto;
+        }
+        .footer {
+            margin-right:auto; margin-left:auto;
+        }
+        .imgHeader {
+            position:relative;
+            background-color:#808080;
+            height:80vmin;
+        }
+        .headerImg {
+            display:block;
+            height:80vmin;
+            width:100%;
+            /*height:100vmin;
+            width:auto;*/
+            margin-right:auto;
+            margin-left:auto;
+            opacity: 0.9;
+        }
+        .headerTxt {
+            font-family: 'Roboto', sans-serif;
+            /*font-style:italic;*/
+            font-weight:bold;
+            font-size:100px;
+            position:absolute;
+            top:40%;
+            width:100%;
+            color:white;
+            text-align:center;
+        }
+        .pageText {
+            font-family: 'Hind', sans-serif;
+            text-align:center;
+            width:auto;
+            margin-top:30px;
+            padding: 0px 40px;
+		}
+		.hyperlink {
+            font-weight:bold;
+            color:#4d79ff;
+            text-decoration:none;
+		}
+		.sponsorBtn {
+			display:grid;
+			grid-template-columns:auto;
+			justify-content:center;
+			align-content:center;
+			margin-bottom:20px;
+		}
+        img {
+            -webkit-user-select: none;
+            -webkit-user-drag: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+		}
+		@media (max-width: 930px){
+		.headerTxt {
+			font-family: 'Roboto', sans-serif;
+			font-style:italic;
+			font-size:80px;
+			position:absolute;
+			top:40%;
+			width:100%;
+			color:white;
+			text-align:center;
+	}
+	}
+	@media (max-width: 650px){
+		.headerTxt {
+			top:30%;
+	}
+	}
+	
+	/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.sliderTxtContainer {
+	display:inline;
+	position:relative;
+	left:22px;
+	width:15px;
+	height:34px;
+	text-align:center;
+	align-content: center;
+}
+.sliderText {
+	display:inline;
+	padding:10px;
+	margin-top:2px;
+	/*height:34px;*/
+}
+    </style>
 </head>
-<body class="page-template-default page page-id-7067 wp-custom-logo wp-embed-responsive theme-generatepress post-image-aligned-center sticky-menu-fade mobile-header mobile-header-logo woocommerce-no-js no-sidebar nav-below-header contained-header one-container active-footer-widgets-0 nav-aligned-center header-aligned-center dropdown-hover full-width-content elementor-default elementor-kit-7103 elementor-page elementor-page-7067" itemtype="https://schema.org/WebPage" itemscope>
+<body id="body" class="page-template-default page page-id-7067 wp-custom-logo wp-embed-responsive theme-generatepress post-image-aligned-center sticky-menu-fade mobile-header mobile-header-logo woocommerce-no-js no-sidebar nav-below-header contained-header one-container active-footer-widgets-0 nav-aligned-center header-aligned-center dropdown-hover full-width-content elementor-default elementor-kit-7103 elementor-page elementor-page-7067" itemtype="https://schema.org/WebPage" itemscope>
 	<a class="screen-reader-text skip-link" href="#content" title="Skip to content">Skip to content</a>		<header id="masthead" class="site-header grid-container grid-parent" itemtype="https://schema.org/WPHeader" itemscope>
 			<div class="inside-header grid-container grid-parent">
 							<div class="header-widget">
 				<aside id="jetpack_widget_social_icons-5" class="widget inner-padding jetpack_widget_social_icons">
-			<ul class="jetpack-social-widget-list size-medium">
+					<ul class="jetpack-social-widget-list size-medium">
 
 				
-											<li class="jetpack-social-widget-item">
-							<a href="https://www.youtube.com/channel/UCA77hk1n3K-Rog8Rj_kCcqg/featured?disable_polymer=1" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">YouTube</span><svg class="icon icon-youtube" aria-hidden="true" role="presentation"> <use href="#icon-youtube" xlink:href="#icon-youtube"></use> </svg>							</a>
-						</li>
-					
-				
-											<li class="jetpack-social-widget-item">
-							<a href="https://www.instagram.com/eagle.robotics/" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="presentation"> <use href="#icon-instagram" xlink:href="#icon-instagram"></use> </svg>							</a>
-						</li>
-					
-				
-											<li class="jetpack-social-widget-item">
-							<a href="https://twitter.com/AllenRobotics" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="presentation"> <use href="#icon-twitter" xlink:href="#icon-twitter"></use> </svg>							</a>
-						</li>
-					
-				
-											<li class="jetpack-social-widget-item">
-							<a href="https://www.facebook.com/FRCTeam5417/?fref=nf" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="presentation"> <use href="#icon-facebook" xlink:href="#icon-facebook"></use> </svg>							</a>
-						</li>
-					
-				
-			</ul>
+						<li class="jetpack-social-widget-item">
+		<a href="https://www.youtube.com/channel/UCA77hk1n3K-Rog8Rj_kCcqg/featured?disable_polymer=1" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">YouTube</span><svg class="icon icon-youtube" aria-hidden="true" role="presentation" id="iconTxt"> <use href="#icon-youtube" xlink:href="#icon-youtube"></use> </svg>							</a>
+	</li>
+
+
+						<li class="jetpack-social-widget-item">
+		<a href="https://www.instagram.com/eagle.robotics/" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Instagram</span><svg class="icon icon-instagram" aria-hidden="true" role="presentation" id="iconTxt2"> <use href="#icon-instagram" xlink:href="#icon-instagram"></use> </svg>							</a>
+	</li>
+
+
+						<li class="jetpack-social-widget-item">
+		<a href="https://twitter.com/AllenRobotics" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Twitter</span><svg class="icon icon-twitter" aria-hidden="true" role="presentation" id="iconTxt3"> <use href="#icon-twitter" xlink:href="#icon-twitter"></use> </svg>							</a>
+	</li>
+
+
+						<li class="jetpack-social-widget-item">
+		<a href="https://www.facebook.com/FRCTeam5417/?fref=nf" target="_blank" rel="noopener noreferrer"><span class="screen-reader-text">Facebook</span><svg class="icon icon-facebook" aria-hidden="true" role="presentation" id="iconTxt4"> <use href="#icon-facebook" xlink:href="#icon-facebook"></use> </svg>							</a>
+	</li>
+
+
+</ul>
+			<label class="switch" id="slider">
+				<input type="checkbox">
+				<span class="slider"></span>
+				<div class="sliderTxtContainer">
+					<div id="sliderTxt" class="sliderText">Dark Theme</div>
+				</div>
+			</label>
 
 			</aside>			</div>
 			<div class="site-branding-container"><div class="site-logo">
@@ -74,11 +230,11 @@
 				</a>
 			</div><div class="site-branding">
 					<p class="main-title" itemprop="headline">
-				<a href="index.html" rel="home">
+				<a href="index.html" rel="home" id="eagleTxt">
 					Eagle Robotics
 				</a>
 			</p>
-					<p class="site-description" itemprop="description">
+					<p class="site-description" itemprop="description" id="subTxt">
 				FRC Team 5417
 			</p>
 				</div></div><!-- .site-branding-container -->			</div><!-- .inside-header -->
@@ -91,7 +247,7 @@
 					</a>
 				</div>					<button class="menu-toggle" aria-controls="mobile-menu" aria-expanded="false">
 						<span class="mobile-menu">Menu</span>					</button>
-						<div id="mobile-menu" class="main-nav"><ul id="menu-custom-main-menu" class=" menu sf-menu"><li id="menu-item-5244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-459 current_page_item menu-item-5244"><a href="index.html" aria-current="page">Home</a></li>
+						<div id="mobile-menu" class="main-nav"><ul id="menu-custom-main-menu" class=" menu sf-menu"><li id="menu-item-5244" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-459 current_page_item menu-item-5244"><a href="index.html" aria-current="page">Home</a></li>
 							<li id="menu-item-6917" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6917"><a href="#">About Us<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li id="menu-item-6949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6949"><a href="our_team.html">Our Team</a></li>
@@ -100,10 +256,10 @@
 								<li id="menu-item-5257" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5257"><a href="aer_boosters.html">AER Boosters</a></li>
 							</ul>
 							</li>
-							<li id="menu-item-6768" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6768"><a>Sponsors<span role="presentation" class="dropdown-menu-toggle"></span></a>
+							<li id="menu-item-6768" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6768 current-menu-item"><a href="#">Sponsors<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li id="menu-item-6761" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6761"><a title="Sponsors" href="our_sponsors.html">Our Sponsors</a></li>
-								<li id="menu-item-5676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5676"><a href="become_sponsor.html">Becoming a Sponsor</a></li>
+								<li id="menu-item-5676" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5676 current-menu-item"><a href="become_sponsor.html">Becoming a Sponsor</a></li>
 							</ul>
 							</li>
 							<li id="menu-item-6920" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6920"><a href="#">Outreach<span role="presentation" class="dropdown-menu-toggle"></span></a>
@@ -119,7 +275,7 @@
 								<li id="menu-item-5876" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5876"><a href="tinkers_thinkers.html">Tinkers and Thinkers</a></li>
 							</ul>
 							</li>
-							<li id="menu-item-5252" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5252"><a>Resources<span role="presentation" class="dropdown-menu-toggle"></span></a>
+							<li id="menu-item-5252" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5252"><a href="#">Resources<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li id="menu-item-5253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5253"><a href="calendar.html">Calendar</a></li>
 								<li id="menu-item-5254" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5254"><a href="contact.html">Contact</a></li>
@@ -127,7 +283,7 @@
 								<li id="menu-item-5256" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5256"><a href="first_help.html">FIRST Help</a></li>
 							</ul>
 							</li>
-							<li id="menu-item-5258" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5258"><a>Photos<span role="presentation" class="dropdown-menu-toggle"></span></a>
+							<li id="menu-item-5258" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5258"><a href="#">Photos<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li id="menu-item-5259" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5259"><a href="2018.html">2018</a></li>
 								<li id="menu-item-5260" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5260"><a href="2017.html">2017</a></li>
@@ -140,7 +296,7 @@
 										<div class="inside-navigation">
 															<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
 												<span class="mobile-menu">Menu</span>				</button>
-											<div id="primary-menu" class="main-nav"><ul id="menu-custom-main-menu-1" class=" menu sf-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-459 current_page_item menu-item-5244"><a href="index.html" aria-current="page">Home</a></li>
+											<div id="primary-menu" class="main-nav"><ul id="menu-custom-main-menu-1" class=" menu sf-menu"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-459 current_page_item menu-item-5244"><a href="index.html" aria-current="page">Home</a></li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6917"><a href="#">About Us<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6949"><a href="our_team.html">Our Team</a></li>
@@ -149,10 +305,10 @@
 								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5257"><a href="aer_boosters.html">AER Boosters</a></li>
 							</ul>
 							</li>
-							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6768"><a>Sponsors<span role="presentation" class="dropdown-menu-toggle"></span></a>
+							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6768 current-menu-item"><a>Sponsors<span role="presentation" class="dropdown-menu-toggle"></span></a>
 							<ul class="sub-menu">
 								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6761"><a title="Sponsors" href="our_sponsors.html">Our Sponsors</a></li>
-								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5676"><a href="become_sponsor.html">Becoming a Sponsor</a></li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-5676 current-menu-item"><a href="become_sponsor.html">Becoming a Sponsor</a></li>
 							</ul>
 							</li>
 							<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6920"><a href="#">Outreach<span role="presentation" class="dropdown-menu-toggle"></span></a>
@@ -191,60 +347,27 @@
                     <main id="main" class="site-main">
                         <article id="post-579" class="post-579 page type-page status-publish" itemtype="https://schema.org/CreativeWork" itemscope>
                             <div class="inside-article">
-                                <header class="entry-header">
-                                    <h1 class="entry-title" itemprop="headline">BECOMING A SPONSOR</h1>
-                                </header>
-                                <!-- .entry-header -->
-                                <div class="entry-content" itemprop="text">
-                                    <div data-elementor-type="wp-post" data-elementor-id="579" class="elementor elementor-579" data-elementor-settings="[]">
-                                        <div class="elementor-inner">
-                                            <div class="elementor-section-wrap">
-                                                <section class="elementor-section elementor-top-section elementor-element elementor-element-a5d23d8 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="a5d23d8" data-element_type="section">
-                                                    <div class="elementor-container elementor-column-gap-default">
-                                                        <div class="elementor-row">
-                                                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-a48d9db" data-id="a48d9db" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-ca67b19 elementor-widget elementor-widget-text-editor" data-id="ca67b19" data-element_type="widget" data-widget_type="text-editor.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-text-editor elementor-clearfix" style="color:black;">
-                                                                                    <p>Please contact us at team5417@gmail.com to become a sponsor.</p>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                                <section class="elementor-section elementor-top-section elementor-element elementor-element-86c6c57 elementor-section-boxed elementor-section-height-default elementor-section-height-default" data-id="86c6c57" data-element_type="section">
-                                                    <div class="elementor-container elementor-column-gap-default">
-                                                        <div class="elementor-row">
-                                                            <div class="elementor-column elementor-col-100 elementor-top-column elementor-element elementor-element-c43ccf6" data-id="c43ccf6" data-element_type="column">
-                                                                <div class="elementor-column-wrap elementor-element-populated">
-                                                                    <div class="elementor-widget-wrap">
-                                                                        <div class="elementor-element elementor-element-52a6be2 elementor-button-info elementor-align-center elementor-widget elementor-widget-button" data-id="52a6be2" data-element_type="widget" data-widget_type="button.default">
-                                                                            <div class="elementor-widget-container">
-                                                                                <div class="elementor-button-wrapper">
-                                                                                    <a href="https://drive.google.com/file/d/1I_Zg75AxZuHn28ovX8jzk7uvvaP2Tex9/view?usp=sharing" class="elementor-button-link elementor-button elementor-size-lg" role="button">
-                                                                                        <span class="elementor-button-content-wrapper">
-                                                                                            <span class="elementor-button-text">Sponsorship Packet</span>
-                                                                                        </span>
-                                                                                    </a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </section>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+								<div class="imgHeader">
+									<img loading="lazy" class="headerImg" src="Media/become_sponsor2.jpg" alt="team picture"/><!-- width="450" height="317" data-recalc-dims="1" class="alignleft wp-image-7049"-->
+									<div class="headerTxt">Becoming A Sponsor</div>
+								</div>
+								<div class="elementor-element elementor-element-cbe7255 elementor-widget-divider--view-line elementor-widget elementor-widget-divider" data-id="cbe7255" data-element_type="widget" data-widget_type="divider.default" style="color:black;">
+									<div class="elementor-widget-container">
+										<div class="elementor-divider">
+											<span class="elementor-divider-separator"></span>
+										</div>
+									</div>
+								</div>
+								<p class="pageText" style="font-size:18px;">
+									Please contact us at <a class="hyperlink" href="mailto:team5417@gmail.com">team5417@gmail.com</a> to become a sponsor.
+								</p>
+								<div class="sponsorBtn">
+								<a id="coolBtn" style="background-color:#be1e2d;" href="https://drive.google.com/file/d/1I_Zg75AxZuHn28ovX8jzk7uvvaP2Tex9/view?usp=sharing" class="elementor-button-link elementor-button elementor-size-lg" role="button">
+									<span class="elementor-button-content-wrapper">
+										<span class="elementor-button-text">Sponsorship Packet</span>
+									</span>
+								</a>
+								</div>
                                 <!-- .entry-content -->
                             </div>
                             <!-- .inside-article -->
@@ -259,8 +382,8 @@
         </div>
         <!-- #page -->
         <div class="site-footer">
-            <footer class="site-info" itemtype="https://schema.org/WPFooter" itemscope>
-                <div class="inside-site-info grid-container grid-parent">
+            <footer id="footer" class="site-info" itemtype="https://schema.org/WPFooter" itemscope>
+                <div class="inside-site-info grid-container grid-parent footer">
                     <div class="copyright-bar">Copyright &copy;2021 Eagle Robotics				</div>
                 </div>
             </footer>
@@ -280,7 +403,75 @@
 var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"version":"3.0.16","is_static":false,"legacyMode":{"elementWrappers":true},"urls":{"assets":"https:\/\/team5417.com\/wp-content\/plugins\/elementor\/assets\/"},"settings":{"page":[],"editorPreferences":[]},"kit":{"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":459,"title":"Eagle%20Robotics%20%E2%80%93%20FRC%20Team%205417","excerpt":"","featuredImage":false}};
 </script>
 <script type='text/javascript' src='External_Scripts/elementor_frontend.js' id='elementor-frontend-js'></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type='text/javascript'>
+$(document).ready(function() {
+     $("img").on("contextmenu",function(){
+        return false;
+     }); 
+ });
+ var slider = document.getElementById("slider");
+	var sliderTxt = document.getElementById("sliderTxt");
+    var masthead = document.getElementById("masthead");
+    var body = document.getElementById("body");
+	var mobileHeader = document.getElementById("mobile-header");
+	var siteNav = document.getElementById("site-navigation");
+    var footer = document.getElementById("footer");
+    var eagleTxt = document.getElementById("eagleTxt");
+    var subTxt = document.getElementById("subTxt");
+	var page = document.getElementById("page");
+	var coolBtn = document.getElementById("coolBtn");
+	var clicked = false;
+	
+	var counter = 0;
+	slider.onclick = function() {
+        if (counter == 0) {
+		if (clicked == false) {
+			sliderTxt.style.color = "white";
+            masthead.style.backgroundColor = "#4d4d4d";
+            page.style.backgroundColor = "#4d4d4d";
+            body.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			coolBtn.style.backgroundColor = "#0b7dda";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+            subTxt.style.color = "white";
+            iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+            page.style.color = "white";
+			clicked = true;
+			counter++;
+		}
+		else {
+			sliderTxt.style.color = "black";
+            masthead.style.backgroundColor = "white";
+            page.style.backgroundColor = "white";
+            body.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			footer.style.backgroundColor = "#be1e2d";
+			coolBtn.style.backgroundColor = "#be1e2d";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+            subTxt.style.color = "#6b1515";
+            iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+            page.style.color = "black";
+			clicked = false;
+			counter++;
+		}
+	}
+	else if (counter == 1) {
+		counter--;
+	}
+	}
+</script>
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-facebook" viewBox="0 0 24 24">
