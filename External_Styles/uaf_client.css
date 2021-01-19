@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'twcen-regular';
+    src: url('/wp-content/uploads/useanyfont/200118091535TwCen-Regular.woff2') format('woff2'),
+        url('/wp-content/uploads/useanyfont/200118091535TwCen-Regular.woff') format('woff');
+    font-display: auto;
+}
+
+.twcen-regular{font-family: 'twcen-regular' !important;}
