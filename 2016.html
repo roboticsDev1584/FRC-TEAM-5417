@@ -702,7 +702,7 @@ $(document).ready(function() {
         $(".zoomImg").attr("src", $(this).attr("src"));
         currentSrc = $(this).attr("src");
         var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
-        //alert("currentSrc: " + currentSrc);
+        alert("currentSrc: " + currentSrc);
         window.onscroll = function() { 
             window.scrollTo(scrollLeft, scrollTop); //this will disable scrolling
         };
@@ -725,12 +725,16 @@ $(document).ready(function() {
             data = data.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/", "");
             //alert("scanning, current data: " + data);
             if (data == currentSrc) {//match has been found, this must be the current img
+                alert("found image!");
                 var newData = pictureArray[index + 1].src;
+                alert("new data: " + newData);
                 newData = newData.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/", "");
                 $(".zoomImg").attr("src", newData); //flip to next image
                 currentSrc = pictureArray[index + 1].src;
-                var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
+                //var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
+                var testSrc = currentSrc.replace("Media/Slideshows/2016/", "");
                 currentSrc = newData;
+                alert("currentSrc: " + currentSrc);
                 //currentSrc = pictureArray[index + 1].src;
                 //alert(testSrc);
                 $(".rArrw").css({"display":"none"});
