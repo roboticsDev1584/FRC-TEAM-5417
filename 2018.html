@@ -826,6 +826,177 @@ $(document).ready(function() {
 	}
 	}
 	</script>
+	
+	
+	<script type='text/javascript'>
+$(document).ready(function() {
+    scrollTop =  window.pageYOffset || document.documentElement.scrollTop; 
+    scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    var pictureArray = document.getElementsByClassName('paraImg');
+    var currentSrc = "";
+    $("img").on("contextmenu",function(){
+        return false;
+     });
+     $(".paraImg").click(function(){
+        $(".zoomImg").attr("src", $(this).attr("src"));
+        currentSrc = $(this).attr("src");
+        //var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
+        var testSrc = currentSrc;
+	//alert("currentSrc: " + currentSrc);
+        window.onscroll = function() { 
+            window.scrollTo(scrollLeft, scrollTop); //this will disable scrolling
+        };
+        $(".zoomImgC").css({"display":"block"});
+        $(".close").css({"display":"block"});
+        $(".lArrw").css({"display":"block"});
+        $(".rArrw").css({"display":"block"});
+        //alert(testSrc);
+        if (testSrc == "Media/Slideshows/2018/2018_0.jpg" || testSrc == "Media/Slideshows/2018/2018_35.jpg" || testSrc == "Media/Slideshows/2018/2018_81.jpg") {
+            $(".lArrw").css({"display":"none"});
+        }
+        if (testSrc == "Media/Slideshows/2018/2018_34.jpg" || testSrc == "Media/Slideshows/2018/2018_80.jpg" || testSrc == "Media/Slideshows/2018/2018_111.jpg") {
+            $(".rArrw").css({"display":"none"});
+        }
+     });
+     $(".rArrw").click(function(){
+	     //alert("calling right arrow function");
+        for (var index = 0; index<pictureArray.length; index++) {
+            var data = pictureArray[index].src; //this gets the src attribute which will be compared
+            //this cleans the string to make sure that the correct thing is being searched for
+            data = data.replace("https://roboticsdev1584.github.io/FRC-TEAM-5417/", "");
+            //alert("scanning, current data: " + data);
+            if (data == currentSrc) {//match has been found, this must be the current img
+                //alert("found image!");
+                var newData = pictureArray[index + 1].src;
+                //alert("new data: " + newData);
+                newData = newData.replace("https://roboticsdev1584.github.io/FRC-TEAM-5417/", "");
+                $(".zoomImg").attr("src", newData); //flip to next image
+                currentSrc = newData;
+                //var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
+                var testSrc = currentSrc.replace("Media/Slideshows/2016/", "");
+                //alert("currentSrc: " + currentSrc);
+                //currentSrc = pictureArray[index + 1].src;
+                //alert(testSrc);
+                $(".rArrw").css({"display":"none"});
+                $(".lArrw").css({"display":"none"});
+                $(".rArrw").css({"display":"block"});
+                $(".lArrw").css({"display":"block"});
+                if (testSrc == "2018_0.jpg" || testSrc == "2018_35.jpg" || testSrc == "2018_81.jpg") {
+            $(".lArrw").css({"display":"none"});
+        }
+        if (testSrc == "2018_34.jpg" || testSrc == "2018_80.jpg" || testSrc == "2018_111.jpg") {
+            $(".rArrw").css({"display":"none"});
+        }
+                break;
+            }
+        }
+        //alert("exiting1");
+        return;
+     });//https://roboticsdev1584.github.io/FRC-TEAM-5417/Media/Slideshows/2016/2016_1.jpg
+     //alert("over here");
+	$(".lArrw").click(function(){
+	     //alert("calling left arrow function");
+        for (var index = 0; index<pictureArray.length; index++) {
+            var data = pictureArray[index].src; //this gets the src attribute which will be compared
+            //this cleans the string to make sure that the correct thing is being searched for
+            data = data.replace("https://roboticsdev1584.github.io/FRC-TEAM-5417/", "");
+            //alert("scanning, current data: " + data);
+            if (data == currentSrc) {//match has been found, this must be the current img
+                //alert("found image!");
+                var newData = pictureArray[index - 1].src;
+                //alert("new data: " + newData);
+                newData = newData.replace("https://roboticsdev1584.github.io/FRC-TEAM-5417/", "");
+                $(".zoomImg").attr("src", newData); //flip to next image
+                currentSrc = newData;
+                //var testSrc = currentSrc.replace("file:///C:/Users/Matth/OneDrive/Desktop/Current_School/FRC_Website_Minified/Website_Pages/Media/Slideshows/2016/", "");
+                var testSrc = currentSrc.replace("Media/Slideshows/2016/", "");
+                //alert("currentSrc: " + currentSrc);
+                //currentSrc = pictureArray[index + 1].src;
+                //alert(testSrc);
+                $(".rArrw").css({"display":"none"});
+                $(".lArrw").css({"display":"none"});
+                $(".rArrw").css({"display":"block"});
+                $(".lArrw").css({"display":"block"});
+                if (testSrc == "2018_0.jpg" || testSrc == "2018_35.jpg" || testSrc == "2018_81.jpg") {
+            $(".lArrw").css({"display":"none"});
+        }
+        if (testSrc == "2018_34.jpg" || testSrc == "2018_80.jpg" || testSrc == "2018_111.jpg") {
+            $(".rArrw").css({"display":"none"});
+        }
+                break;
+            }
+        }
+        //alert("exiting1");
+        return;
+     });
+     //alert("over here2");
+     $(".close").click(function(){
+        window.onscroll = function() {}; //enable scrolling
+        $(".zoomImgC").css({"display":"none"});
+        $(".close").css({"display":"none"});
+        $(".lArrw").css({"display":"none"});
+        $(".rArrw").css({"display":"none"});
+     });
+ });
+ var slider = document.getElementById("slider");
+	var sliderTxt = document.getElementById("sliderTxt");
+    var masthead = document.getElementById("masthead");
+    var body = document.getElementById("body");
+	var mobileHeader = document.getElementById("mobile-header");
+	var siteNav = document.getElementById("site-navigation");
+    var footer = document.getElementById("footer");
+    var eagleTxt = document.getElementById("eagleTxt");
+    var subTxt = document.getElementById("subTxt");
+	var page = document.getElementById("page");
+	var clicked = false;
+	
+	var counter = 0;
+	slider.onclick = function() {
+        if (counter == 0) {
+		if (clicked == false) {
+			sliderTxt.style.color = "white";
+            masthead.style.backgroundColor = "#4d4d4d";
+            page.style.backgroundColor = "#4d4d4d";
+            body.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+            subTxt.style.color = "white";
+            iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+            page.style.color = "white";
+            clicked = true;
+            counter++;
+		}
+		else {
+			sliderTxt.style.color = "black";
+            masthead.style.backgroundColor = "white";
+            page.style.backgroundColor = "white";
+            body.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			footer.style.backgroundColor = "#be1e2d";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+            subTxt.style.color = "#6b1515";
+            iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+            page.style.color = "black";
+            clicked = false;
+            counter++;
+        }
+    }
+	else if (counter == 1) {
+		counter--;
+	}
+	}
+</script>
 <svg style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>
 <symbol id="icon-facebook" viewBox="0 0 24 24">
