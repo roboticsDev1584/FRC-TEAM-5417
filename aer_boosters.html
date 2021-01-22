@@ -231,7 +231,7 @@ input:checked + .slider:before {
 
 </ul>
                 <label class="switch" id="slider">
-                    <input type="checkbox">
+                    <input type="checkbox" class="chkBox">
                     <span class="slider"></span>
                     <div class="sliderTxtContainer">
                         <div id="sliderTxt" class="sliderText">Dark Theme</div>
@@ -441,12 +441,110 @@ $(document).ready(function() {
     var subTxt = document.getElementById("subTxt");
     var page = document.getElementById("page");
     var aerSub = document.getElementById("aerSub");
-	var clicked = false;
+	//var clicked = false;
 	
-	var counter = 0;
+    var counter = 0;
+    var bitFlag = 0;
+
+    var clicked = localStorage.getItem("themeVal"); //note- whenever something is saved to localStorage, it is transformed into type string
+    if (clicked == null) {
+        clicked = true;
+    }
+    //alert(clicked);
+    var invert = localStorage.getItem("invertVal");
+    if (invert == null) {
+        invert = true;
+	}
+	
+	if (bitFlag == 0) {
+        //alert("loading styles");
+        if (invert == true || invert == "true") {
+        if (clicked == true || clicked == "true") { //this updates the current styles when the page first loads
+			sliderTxt.style.color = "white";
+            masthead.style.backgroundColor = "#4d4d4d";
+            page.style.backgroundColor = "#4d4d4d";
+            body.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+            subTxt.style.color = "white";
+            iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+            page.style.color = "white";
+            aerSub.style.color = "#2196F3";
+            bitFlag++;
+            $(".chkBox").attr("checked", true); //this will checkmark the box
+		}
+		else {
+			sliderTxt.style.color = "black";
+            masthead.style.backgroundColor = "white";
+            page.style.backgroundColor = "white";
+            body.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			footer.style.backgroundColor = "#be1e2d";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+            subTxt.style.color = "#6b1515";
+            iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+            page.style.color = "black";
+            aerSub.style.color = "black";
+            bitFlag++;
+        }
+        }
+        else { //when invert is false
+            if (clicked == false || clicked == "false") { //this updates the current styles when the page first loads
+				sliderTxt.style.color = "white";
+            masthead.style.backgroundColor = "#4d4d4d";
+            page.style.backgroundColor = "#4d4d4d";
+            body.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+            subTxt.style.color = "white";
+            iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+            page.style.color = "white";
+            aerSub.style.color = "#2196F3";
+            bitFlag++;
+            $(".chkBox").attr("checked", true); //this will checkmark the box
+		}
+		else {
+			sliderTxt.style.color = "black";
+            masthead.style.backgroundColor = "white";
+            page.style.backgroundColor = "white";
+            body.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			footer.style.backgroundColor = "#be1e2d";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+            subTxt.style.color = "#6b1515";
+            iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+            page.style.color = "black";
+            aerSub.style.color = "black";
+            bitFlag++;
+        }
+        }
+    }
+
 	slider.onclick = function() {
         if (counter == 0) {
-		if (clicked == false) {
+		if (clicked == false || clicked == "false") {
 			sliderTxt.style.color = "white";
             masthead.style.backgroundColor = "#4d4d4d";
             page.style.backgroundColor = "#4d4d4d";
@@ -464,6 +562,7 @@ $(document).ready(function() {
             page.style.color = "white";
             aerSub.style.color = "#2196F3";
             clicked = true;
+            invert = true;
             counter++;
 		}
 		else {
@@ -484,8 +583,11 @@ $(document).ready(function() {
             page.style.color = "black";
             aerSub.style.color = "black";
             clicked = false;
+            invert = true;
             counter++;
         }
+        localStorage.setItem("themeVal",clicked); //this updates the global clicked state
+        localStorage.setItem("invertVal",invert); //this updates the global inverted state
     }
 	else if (counter == 1) {
 		counter--;
