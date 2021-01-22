@@ -179,7 +179,7 @@ input:checked + .slider:before {
 				
 			</ul>
 			<label class="switch" id="slider">
-				<input type="checkbox">
+				<input type="checkbox" id="chkBox">
 				<span class="slider"></span>
 				<div class="sliderTxtContainer">
 					<div id="sliderTxt" class="sliderText">Dark Theme</div>
@@ -746,7 +746,8 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 	var infiniteC = document.getElementById("infiniteC");
 	var footer = document.getElementById("footer");
 	var txtArray = document.getElementsByClassName('hdrTxt');
-	var clicked = false;
+	var chkBox = document.getElementById('chkBox');
+	//var clicked = false;
 	
     /*var clicked = localStorage.getItem("themeVal");
     if (clicked == null) {
@@ -755,9 +756,271 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
     alert(clicked);*/
 
 	var counter = 0;
+	var bitFlag = 0;
+
+	var clicked = localStorage.getItem("themeVal"); //note- whenever something is saved to localStorage, it is transformed into type string
+    if (clicked == null) {
+        //alert("changing value!");
+        clicked = true;
+    }
+    //alert(clicked);
+    var invert = localStorage.getItem("invertVal");
+    if (invert == null) {
+        //alert("changing value of invert!");
+        invert = true; //used to be false, but I think this might work
+    }
+    //alert("Loaded invert val: " + invert);
+    /*if (invert == true || invert == "true"){ //this inverts the value in case the slider has been hit
+        alert("This should only happen once");
+        if (clicked == false) {
+            invert = false;
+            clicked = true;
+        }
+        else {
+            invert = false;
+            clicked = false;
+        }
+    }*/
+    //alert("Current invert val: " + invert);
+
+	if (bitFlag == 0) {
+        //alert("loading styles");
+        if (invert == true || invert == "true") {
+		if (clicked == true || clicked == "true") { //this updates the current styles when the page first loads
+			//this is the dark theme styling
+			sliderTxt.style.color = "white";
+			body.style.backgroundColor = "#4d4d4d";
+			masthead.style.backgroundColor = "#4d4d4d";
+			content.style.backgroundColor = "#4d4d4d";
+			page.style.backgroundColor = "#4d4d4d";
+			mainVideo.style.backgroundColor = "black";
+			para1.style.backgroundColor = "#4d4d4d";
+			para2.style.backgroundColor = "#4d4d4d";
+			para3.style.backgroundColor = "#4d4d4d";
+			para4.style.backgroundColor = "#4d4d4d";
+			para5.style.backgroundColor = "#4d4d4d";
+			para6.style.backgroundColor = "#4d4d4d";
+			para7.style.backgroundColor = "#4d4d4d";
+			para8.style.backgroundColor = "#4d4d4d";
+			para9.style.backgroundColor = "#4d4d4d";
+			para10.style.backgroundColor = "#4d4d4d";
+			space1.style.backgroundColor = "#4d4d4d";
+			space2.style.backgroundColor = "#4d4d4d";
+			space3.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			donateBtnC.style.backgroundColor = "#2196F3";
+			//donateBtn.style.backgroundColor = "#0b7dda";
+			infiniteC.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			txt1.style.color = "white";
+			txt2.style.color = "white";
+			txt3.style.color = "white";
+			txt4.style.color = "white";
+			txt5.style.color = "white";
+			txt6.style.color = "white";
+			txt7.style.color = "white";
+			txt8.style.color = "white";
+			//txt9.style.color = "white";
+			txt10.style.color = "white";
+			//txt11.style.color = "white";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+			subTxt.style.color = "white";
+			iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+			whoWeAre.style.color = "#2196F3";
+			txtArray[0].style.color = "#2196F3";
+			txtArray[1].style.color = "#2196F3";
+            bitFlag++;
+            //document.getElementById("myCheck").checked = true; 
+            chkBox.checked = true; //this will checkmark the box
+            //alert("The slider has been checked!");
+            //clicked = true;
+            /*$(".chkBox").change(function() { //this checks the box to make it styled right when dark theme is on
+                var temp = $(this);
+                temp.val(temp.prop('checked'));
+                alert("checkbox is checked2");
+            });*/
+		}
+		else {
+			//this is the light theme styling
+			sliderTxt.style.color = "black";
+			body.style.backgroundColor = "white";
+			masthead.style.backgroundColor = "white";
+			content.style.backgroundColor = "white";
+			mainVideo.style.backgroundColor = "black";
+			page.style.backgroundColor = "white";
+			para1.style.backgroundColor = "white";
+			para2.style.backgroundColor = "white";
+			para3.style.backgroundColor = "white";
+			para4.style.backgroundColor = "white";
+			para5.style.backgroundColor = "white";
+			para6.style.backgroundColor = "white";
+			para7.style.backgroundColor = "white";
+			para8.style.backgroundColor = "white";
+			para9.style.backgroundColor = "white";
+			para10.style.backgroundColor = "white";
+			space1.style.backgroundColor = "white";
+			space2.style.backgroundColor = "white";
+			space3.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			donateBtnC.style.backgroundColor = "#d44e4e";
+			//donateBtn.style.backgroundColor = "#bc3f3f";
+			infiniteC.style.backgroundColor = "#6b1515";
+			footer.style.backgroundColor = "#be1e2d";
+			txt1.style.color = "black";
+			txt2.style.color = "black";
+			txt3.style.color = "black";
+			txt4.style.color = "black";
+			txt5.style.color = "black";
+			txt6.style.color = "black";
+			txt7.style.color = "black";
+			txt8.style.color = "black";
+			//txt9.style.color = "black";
+			txt10.style.color = "black";
+			//txt11.style.color = "black";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+			subTxt.style.color = "#6b1515";
+			iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+			whoWeAre.style.color = "#be1e2d";
+			txtArray[0].style.color = "#be1e2d";
+			txtArray[1].style.color = "#be1e2d";
+            bitFlag++;
+            //clicked = false;
+            /*$(".chkBox").change(function() { //this checks the box to make it styled right when dark theme is on
+                var temp = $(this);
+                temp.val(temp.prop('checked'));
+                alert("checkbox is checked3");
+            });*/
+        }
+        }
+        else { //when invert is false
+            if (clicked == false || clicked == "false") { //this updates the current styles when the page first loads
+				sliderTxt.style.color = "white";
+			body.style.backgroundColor = "#4d4d4d";
+			masthead.style.backgroundColor = "#4d4d4d";
+			content.style.backgroundColor = "#4d4d4d";
+			page.style.backgroundColor = "#4d4d4d";
+			mainVideo.style.backgroundColor = "black";
+			para1.style.backgroundColor = "#4d4d4d";
+			para2.style.backgroundColor = "#4d4d4d";
+			para3.style.backgroundColor = "#4d4d4d";
+			para4.style.backgroundColor = "#4d4d4d";
+			para5.style.backgroundColor = "#4d4d4d";
+			para6.style.backgroundColor = "#4d4d4d";
+			para7.style.backgroundColor = "#4d4d4d";
+			para8.style.backgroundColor = "#4d4d4d";
+			para9.style.backgroundColor = "#4d4d4d";
+			para10.style.backgroundColor = "#4d4d4d";
+			space1.style.backgroundColor = "#4d4d4d";
+			space2.style.backgroundColor = "#4d4d4d";
+			space3.style.backgroundColor = "#4d4d4d";
+			mobileHeader.style.backgroundColor = "#2196F3";
+			siteNav.style.backgroundColor = "#2196F3";
+			donateBtnC.style.backgroundColor = "#2196F3";
+			//donateBtn.style.backgroundColor = "#0b7dda";
+			infiniteC.style.backgroundColor = "#2196F3";
+			footer.style.backgroundColor = "#2196F3";
+			txt1.style.color = "white";
+			txt2.style.color = "white";
+			txt3.style.color = "white";
+			txt4.style.color = "white";
+			txt5.style.color = "white";
+			txt6.style.color = "white";
+			txt7.style.color = "white";
+			txt8.style.color = "white";
+			//txt9.style.color = "white";
+			txt10.style.color = "white";
+			//txt11.style.color = "white";
+			masthead.style.color = "white";
+			eagleTxt.style.color = "white";
+			subTxt.style.color = "white";
+			iconTxt.style.color = "white";
+			iconTxt2.style.color = "white";
+			iconTxt3.style.color = "white";
+			iconTxt4.style.color = "white";
+			whoWeAre.style.color = "#2196F3";
+			txtArray[0].style.color = "#2196F3";
+			txtArray[1].style.color = "#2196F3";
+			bitFlag++;
+			chkBox.checked = true; //this will checkmark the box
+            //alert("The slider has been checked2!");
+            //clicked = true;
+            /*$(".chkBox").change(function() { //this checks the box to make it styled right when dark theme is on
+                var temp = $(this);
+                temp.val(temp.prop('checked'));
+                alert("checkbox is checked2");
+            });*/
+		}
+		else {
+			sliderTxt.style.color = "black";
+			body.style.backgroundColor = "white";
+			masthead.style.backgroundColor = "white";
+			content.style.backgroundColor = "white";
+			mainVideo.style.backgroundColor = "black";
+			page.style.backgroundColor = "white";
+			para1.style.backgroundColor = "white";
+			para2.style.backgroundColor = "white";
+			para3.style.backgroundColor = "white";
+			para4.style.backgroundColor = "white";
+			para5.style.backgroundColor = "white";
+			para6.style.backgroundColor = "white";
+			para7.style.backgroundColor = "white";
+			para8.style.backgroundColor = "white";
+			para9.style.backgroundColor = "white";
+			para10.style.backgroundColor = "white";
+			space1.style.backgroundColor = "white";
+			space2.style.backgroundColor = "white";
+			space3.style.backgroundColor = "white";
+			mobileHeader.style.backgroundColor = "#be1e2d";
+			siteNav.style.backgroundColor = "#be1e2d";
+			donateBtnC.style.backgroundColor = "#d44e4e";
+			//donateBtn.style.backgroundColor = "#bc3f3f";
+			infiniteC.style.backgroundColor = "#6b1515";
+			footer.style.backgroundColor = "#be1e2d";
+			txt1.style.color = "black";
+			txt2.style.color = "black";
+			txt3.style.color = "black";
+			txt4.style.color = "black";
+			txt5.style.color = "black";
+			txt6.style.color = "black";
+			txt7.style.color = "black";
+			txt8.style.color = "black";
+			//txt9.style.color = "black";
+			txt10.style.color = "black";
+			//txt11.style.color = "black";
+			masthead.style.color = "black";
+			eagleTxt.style.color = "black";
+			subTxt.style.color = "#6b1515";
+			iconTxt.style.color = "black"; 
+			iconTxt2.style.color = "black"; 
+			iconTxt3.style.color = "black"; 
+			iconTxt4.style.color = "black"; 
+			whoWeAre.style.color = "#be1e2d";
+			txtArray[0].style.color = "#be1e2d";
+			txtArray[1].style.color = "#be1e2d";
+            bitFlag++;
+            //clicked = false;
+            /*$(".chkBox").change(function() { //this checks the box to make it styled right when dark theme is on
+                var temp = $(this);
+                temp.val(temp.prop('checked'));
+                alert("checkbox is checked3");
+            });*/
+        }
+        }
+    }
+
 	slider.onclick = function(){
 		if (counter == 0) {
-		if (clicked == false) {
+		if (clicked == false || clicked == "false") {
 			sliderTxt.style.color = "white";
 			body.style.backgroundColor = "#4d4d4d";
 			masthead.style.backgroundColor = "#4d4d4d";
@@ -806,6 +1069,7 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 			txtArray[1].style.color = "#2196F3";
 			clicked = true;
 			counter++;
+			invert = true;
 			/*$(".chkBox").change(function() { 
                 var temp = $(this);
                 temp.val(temp.prop('checked'));
@@ -861,8 +1125,14 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 			txtArray[1].style.color = "#be1e2d";
 			clicked = false;
 			counter++;
+			invert = true;
 		}
-        //localStorage.setItem("themeVal",clicked);
+        localStorage.setItem("themeVal",clicked); //this updates the global clicked state
+        //alert("Themeval Value: " + localStorage.getItem("themeVal"));
+        //alert("Clicked Value: " + clicked);
+        localStorage.setItem("invertVal",invert); //this updates the global inverted state
+        //alert("invertVal Value: " + localStorage.getItem("invertVal"));
+        //alert("Invert Value: " + invert);
 	}
 	else if (counter == 1) {
 		counter--;
