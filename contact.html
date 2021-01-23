@@ -480,6 +480,39 @@ $(document).ready(function() {
         return false;
      }); 
  });
+	
+
+function cleanString (inputS) {
+    inputS = inputS.replace(/&/g, "").replace(/>/g, "").replace(/</g, "").replace(/"/g, "").replace(/\\/g, "").replace(/\//g, "");
+    inputS = inputS.replace("&amp;", "").replace("&gt;", "").replace("&lt;", "").replace("&quot;", "");
+    inputS = inputS.trim();
+    return inputS;
+}
+
+ const formz = document.querySelector('form');
+ formz.addEventListener('submit', event => {
+     event.preventDefault();
+     var textLink = "mailto:test@example.com";
+     var nameV = document.getElementById("g429-name").value;
+     nameV = cleanString(nameV);
+     var emailV = document.getElementById("g429-email").value;
+     emailV = cleanString(emailV);
+     var subjectV = document.getElementById("g429-subject").value;
+     subjectV = cleanString(subjectV);
+     var phoneV = document.getElementById("g429-phone").value;
+     phoneV = cleanString(phoneV);
+     var companyV = document.getElementById("g429-company").value;
+     companyV = cleanString(companyV);
+     var messageV = document.getElementById("g429-message").value;
+     messageV = cleanString(messageV);
+     var fullMessage = "From: " + nameV + " at: " + emailV + "%0d%0aPhone number: " + phoneV + "%0d%0aCompany: " + companyV + "%0d%0aMessage:%0d%0a" + messageV + "%0d%0a%0d%0a%0d%0a";
+     textLink+="?subject=";
+     textLink+=subjectV;
+     textLink+="&body=";
+     textLink+=fullMessage;
+     window.open(textLink);
+ });
+	
  var slider = document.getElementById("slider");
 	var sliderTxt = document.getElementById("sliderTxt");
     var masthead = document.getElementById("masthead");
